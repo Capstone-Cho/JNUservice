@@ -70,7 +70,7 @@ function SubscriptionPage() {
         <>
             <TaxiBar />
             <div style={{width: '85%', margin: '3rem auto'}}>
-                <Title level={2}> Subscribed Videos </Title>
+                <Title level={2}> Subscribed </Title>
                 <hr />
 
                 <Row gutter={16}>{renderCards}</Row>
