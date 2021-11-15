@@ -7,20 +7,21 @@ import Cart from './shopping-cart.png'
 import Tree from './tree.png'
 import Mountain from './mountains.png'
 import Contrast from './contrast.png'
+import Colud from './cloud.png'
 
 const Home = () => {
     return (
         <div className="HomeBody">
             <div className="scene">
-                <span className="text">Taxi Mate & Used Deal</span>
+                <span className="text">Taxi Mate & Marketplace</span>
                 <img src={Taxi} className="fa-car-side" />
                 <img src={Cart} class="fa-shopping-cart" />
 
-                <i className="fas fa-cloud" style={{'--i': '1'}}></i>
-                <i className="fas fa-cloud" style={{'--i': '2'}}></i>
-                <i className="fas fa-cloud" style={{'--i': '3'}}></i>
-                <i className="fas fa-cloud" style={{'--i': '4'}}></i>
-                <i className="fas fa-cloud" style={{'--i': '5'}}></i>
+                <img src={Colud} className="fas fa-cloud" style={{'--i': '1'}} />
+                <img src={Colud} className="fas fa-cloud" style={{'--i': '2'}} />
+                <img src={Colud} className="fas fa-cloud" style={{'--i': '3'}} />
+                <img src={Colud} className="fas fa-cloud" style={{'--i': '4'}} />
+                <img src={Colud} className="fas fa-cloud" style={{'--i': '5'}} />
 
                 <img src={Tree} className="fas fa-tree" style={{'--i': '1'}} />
                 <img src={Tree} className="fas fa-tree" style={{'--i': '2'}} />
