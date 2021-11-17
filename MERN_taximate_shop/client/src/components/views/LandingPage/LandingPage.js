@@ -128,7 +128,7 @@ function LandingPage() {
     return (
         <>
             <ShopBar />
-            <div style={{width: '75%', margin: '3rem auto', display: 'flex', flexDirection: 'column'}}>
+            <div style={{width: '90%', margin: '3rem auto', display: 'flex', flexDirection: 'column'}}>
                 <div style={{textAlign: 'center'}}>
                     <h2>
                         제주대학교 중고장터 <Icon type="rocket" />{' '}
