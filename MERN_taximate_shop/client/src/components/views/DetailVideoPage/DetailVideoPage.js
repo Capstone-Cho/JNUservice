@@ -1,13 +1,12 @@
 /* global kakao */
 import React, {useEffect, useState} from 'react'
-import {List, Avatar, Row, Col} from 'antd'
+import {List, Row, Col} from 'antd'
 import axios from 'axios'
 import SideVideo from './Sections/SideVideo'
 import Subscriber from './Sections/Subscriber'
 import Comments from './Sections/Comments'
 import LikeDislikes from './Sections/LikeDislikes'
 import TaxiBar from '../TaxiBar/NavBar'
-import Map from './Sections/Map'
 import moment from 'moment'
 
 function DetailVideoPage(props) {

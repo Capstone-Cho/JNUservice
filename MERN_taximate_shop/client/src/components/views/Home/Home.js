@@ -1,5 +1,5 @@
 /* global kakao */
-import React, {useEffect} from 'react'
+import React from 'react'
 import './Home.css'
 
 import Taxi from './taxi.png'
@@ -15,7 +15,7 @@ const Home = () => {
             <div className="scene">
                 <span className="text">Taxi Mate & Marketplace</span>
                 <img src={Taxi} className="fa-car-side" />
-                <img src={Cart} class="fa-shopping-cart" />
+                <img src={Cart} className="fa-shopping-cart" />
 
                 <img src={Colud} className="fas fa-cloud" style={{'--i': '1'}} />
                 <img src={Colud} className="fas fa-cloud" style={{'--i': '2'}} />

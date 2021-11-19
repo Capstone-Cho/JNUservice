@@ -6,6 +6,15 @@ import {Empty, Result} from 'antd'
 import Paypal from '../../utils/Paypal'
 import ShopBar from '../ShopBar/NavBar'
 
+import styled from 'styled-components'
+
+const Grid = styled.div`
+    height: 100%;
+    display: grid;
+    grid-template-areas: 'sidebar main';
+    grid-template-columns: 150px 1fr;
+`
+
 function CartPage(props) {
     const dispatch = useDispatch()
 
@@ -62,7 +71,7 @@ function CartPage(props) {
     }
 
     return (
-        <>
+        <Grid>
             <ShopBar />
             <div style={{width: '85%', margin: '3rem auto'}}>
                 <h1>My Cart</h1>
@@ -86,7 +95,7 @@ function CartPage(props) {
 
                 {ShowTotal && <Paypal total={Total} onSuccess={transactionSuccess} />}
             </div>
-        </>
+        </Grid>
     )
 }
 

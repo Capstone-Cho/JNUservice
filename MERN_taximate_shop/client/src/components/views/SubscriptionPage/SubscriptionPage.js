@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import {FaCode} from 'react-icons/fa'
 import {Card, Avatar, Col, Typography, Row} from 'antd'
 import axios from 'axios'
 import moment from 'moment'
@@ -29,7 +28,7 @@ function SubscriptionPage() {
 
         return (
             <Col lg={6} md={8} xs={24}>
-                <div style={{position: 'relative'}}>
+                <div style={{position: 'relative'}} key={index}>
                     <a href={`/video/${video._id}`}>
                         {/* <img style={{width: '100%'}} alt="thumbnail" src={`http://localhost:5000/${video.thumbnail}`} /> */}
                         <img src={`https://img.icons8.com/fluency/2x/carpool.png`} style={{width: '150px', margin: '30px'}} />

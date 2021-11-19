@@ -1,7 +1,6 @@
 /* global kakao */
 import React, {useState, useEffect} from 'react'
-import {Typography, Form, message, Icon} from 'antd'
-import Dropzone from 'react-dropzone'
+import {Typography, Form} from 'antd'
 import axios from 'axios'
 import {useSelector} from 'react-redux'
 
@@ -338,14 +337,14 @@ function UploadVideoPage(props) {
 
                     <div style={{width: '50%', marginLeft: '15px'}}>
                         <label>출발 장소</label>
-                        <Textarea value={StartAddr} style={{maxWidth: '100%'}} />
+                        <Textarea value={StartAddr} style={{maxWidth: '100%'}} readOnly />
                         <br />
                         <label htmlFor="">상세주소 </label>
                         <Input type="text" value={StartLocation} onChange={handleChangeStartLocation} />
                         <br />
                         <br />
                         <label>도착 장소</label>
-                        <Textarea value={EndAddr} style={{maxWidth: '100%'}} />
+                        <Textarea value={EndAddr} style={{maxWidth: '100%'}} readOnly />
                         <br />
                         <label htmlFor="">상세주소 </label>
                         <Input type="text" value={EndLocation} onChange={handleChangeEndLocation} />
@@ -356,17 +355,17 @@ function UploadVideoPage(props) {
                         <br />
                         <br />
                         <label>내용</label>
-                        <Textarea onChange={handleChangeDecsription} value={Description} />
+                        <Textarea onChange={handleChangeDecsription} value={Description} readOnly />
                         <br />
                         <br />
                         <label>출발</label>
-                        <Input value={StartLa} style={{width: '40%', marginLeft: '10px'}} />
-                        <Input value={StartMa} style={{width: '40%', marginLeft: '10px'}} />
+                        <Input value={StartLa} style={{width: '40%', marginLeft: '10px'}} readOnly />
+                        <Input value={StartMa} style={{width: '40%', marginLeft: '10px'}} readOnly />
                         <br />
                         <br />
                         <label>도착</label>
-                        <Input value={EndLa} style={{width: '40%', marginLeft: '10px'}} />
-                        <Input value={EndMa} style={{width: '40%', marginLeft: '10px'}} />
+                        <Input value={EndLa} style={{width: '40%', marginLeft: '10px'}} readOnly />
+                        <Input value={EndMa} style={{width: '40%', marginLeft: '10px'}} readOnly />
                         <br />
                         <br />
                         <Button type="primary" size="large" onClick={onSubmit} style={{display: 'block', margin: 'auto'}}>

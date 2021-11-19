@@ -6,6 +6,14 @@ import {Row, Col} from 'antd'
 
 import ShopBar from '../ShopBar/NavBar'
 
+import styled from 'styled-components'
+
+const Grid = styled.div`
+    height: 100%;
+    display: grid;
+    grid-template-areas: 'sidebar main';
+`
+
 function DetailProductPage(props) {
     const productId = props.match.params.productId
 
@@ -16,12 +24,12 @@ function DetailProductPage(props) {
             .get(`/api/product/products_by_id?id=${productId}&type=single`)
             .then(response => {
                 setProduct(response.data[0])
+                console.log(response.data[0])
             })
             .catch(err => alert(err))
     }, [])
-
     return (
-        <>
+        <Grid>
             <ShopBar />
             <div style={{width: '100%', padding: '3rem 4rem'}}>
                 <div style={{display: 'flex', justifyContent: 'center'}}>
@@ -31,17 +39,15 @@ function DetailProductPage(props) {
                 <br />
 
                 <Row gutter={[16, 16]}>
-                    <Col lg={12} sm={24}>
-                        {/* ProductImage */}
+                    <Col lg={12}>
                         <ProductImage detail={Product} />
                     </Col>
-                    <Col lg={12} sm={24}>
-                        {/* ProductInfo */}
+                    <Col lg={12}>
                         <ProductInfo detail={Product} />
                     </Col>
                 </Row>
             </div>
-        </>
+        </Grid>
     )
 }
 

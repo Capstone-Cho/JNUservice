@@ -1,8 +1,17 @@
 import React, {useState} from 'react'
-import {Typography, Button, Form, Input} from 'antd'
+import {Form, Input} from 'antd'
 import FileUpload from '../../utils/FileUpload'
 import Axios from 'axios'
 import ShopBar from '../ShopBar/NavBar'
+
+import styled from 'styled-components'
+
+const Grid = styled.div`
+    height: 100%;
+    display: grid;
+    grid-template-areas: 'sidebar main';
+    grid-template-columns: 150px 1fr;
+`
 
 const {TextArea} = Input
 
@@ -73,9 +82,9 @@ function UploadProductPage(props) {
     }
 
     return (
-        <>
+        <Grid>
             <ShopBar />
-            <div style={{maxWidth: '700px', margin: '2rem auto'}}>
+            <div style={{maxWidth: '700px', margin: '3rem auto'}}>
                 <div style={{textAlign: 'center', marginBottom: '2rem'}}>
                     <h2> 상품 업로드</h2>
                 </div>
@@ -111,7 +120,7 @@ function UploadProductPage(props) {
                     <button type="submit">확인</button>
                 </Form>
             </div>
-        </>
+        </Grid>
     )
 }
 

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import {FaCode} from 'react-icons/fa'
 import axios from 'axios'
-import {Icon, Col, Card, Row, Carousel} from 'antd'
+import {Icon, Col, Card, Row} from 'antd'
 import Meta from 'antd/lib/card/Meta'
 import ImageSlider from '../../utils/ImageSlider'
 import Checkbox from './Sections/CheckBox'
@@ -9,6 +8,14 @@ import Radiobox from './Sections/RadioBox'
 import SearchFeature from './Sections/SearchFeature'
 import {continents, price} from './Sections/Datas'
 import ShopBar from '../ShopBar/NavBar'
+import styled from 'styled-components'
+
+const Grid = styled.div`
+    height: 100%;
+    display: grid;
+    grid-template-areas: 'sidebar main';
+    grid-template-columns: 150px 1fr;
+`
 
 function LandingPage() {
     const [Products, setProducts] = useState([])
@@ -60,7 +67,7 @@ function LandingPage() {
 
     const renderCards = Products.map((product, index) => {
         return (
-            <Col lg={6} md={8} xs={24} key={index}>
+            <Col lg={4} md={6} sm={8} xs={24} key={index}>
                 <Card
                     cover={
                         <a href={`/product/${product._id}`}>
@@ -126,7 +133,7 @@ function LandingPage() {
     }
 
     return (
-        <>
+        <Grid>
             <ShopBar />
             <div style={{width: '90%', margin: '3rem auto', display: 'flex', flexDirection: 'column'}}>
                 <div style={{textAlign: 'center'}}>
@@ -147,26 +154,20 @@ function LandingPage() {
                         <Radiobox list={price} handleFilters={filters => handleFilters(filters, 'price')} />
                     </Col>
                 </Row>
-
                 {/* Search */}
-
                 <div style={{display: 'flex', justifyContent: 'flex-end', margin: '1rem auto'}}>
                     <SearchFeature refreshFunction={updateSearchTerm} />
                 </div>
-
                 {/* Cards */}
-
                 <Row gutter={[16, 16]}>{renderCards}</Row>
-
                 <br />
-
                 {PostSize >= Limit && (
                     <div style={{display: 'flex', justifyContent: 'center'}}>
                         <button onClick={loadMoreHanlder}>더보기</button>
                     </div>
                 )}
             </div>
-        </>
+        </Grid>
     )
 }
 
