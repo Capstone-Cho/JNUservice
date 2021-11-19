@@ -11,10 +11,12 @@ import ShopBar from '../ShopBar/NavBar'
 import styled from 'styled-components'
 
 const Grid = styled.div`
-    height: 100%;
+    height: 100vh;
     display: grid;
     grid-template-areas: 'sidebar main';
     grid-template-columns: 150px 1fr;
+
+    background: #bbcce2;
 `
 
 function LandingPage() {
@@ -69,6 +71,7 @@ function LandingPage() {
         return (
             <Col lg={4} md={6} sm={8} xs={24} key={index}>
                 <Card
+                    style={{borderRadius: '10px'}}
                     cover={
                         <a href={`/product/${product._id}`}>
                             <ImageSlider images={product.images} />
