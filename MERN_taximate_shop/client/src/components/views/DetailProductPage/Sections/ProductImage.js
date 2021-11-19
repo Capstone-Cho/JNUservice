@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import ImageGallery from 'react-image-gallery'
+// import ImageGallery from 'react-image-gallery'
 
 function ProductImage(props) {
     const [Images, setImages] = useState([])
+    const [img, setImg] = useState('')
 
     useEffect(() => {
         if (props.detail.images && props.detail.images.length > 0) {
@@ -13,15 +14,19 @@ function ProductImage(props) {
                     original: `http://localhost:5000/${item}`,
                     thumbnail: `http://localhost:5000/${item}`,
                 })
+                setImg(`http://localhost:5000/${item}`)
             })
+
+            console.log(images[0])
             setImages(images)
         }
     }, [props.detail])
 
     return (
-        <div>
-            <ImageGallery items={Images} />
-        </div>
+        <>
+            {/* <ImageGallery items={Images} width="100%" /> */}
+            <img src={img} alt="" width="95%" />
+        </>
     )
 }
 

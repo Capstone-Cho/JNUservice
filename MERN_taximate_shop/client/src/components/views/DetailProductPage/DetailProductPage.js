@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import ProductImage from './Sections/ProductImage'
 import ProductInfo from './Sections/ProductInfo'
-import {Row, Col} from 'antd'
-
 import ShopBar from '../ShopBar/NavBar'
 
 import styled from 'styled-components'
@@ -24,7 +22,6 @@ function DetailProductPage(props) {
             .get(`/api/product/products_by_id?id=${productId}&type=single`)
             .then(response => {
                 setProduct(response.data[0])
-                console.log(response.data[0])
             })
             .catch(err => alert(err))
     }, [])
@@ -38,14 +35,14 @@ function DetailProductPage(props) {
 
                 <br />
 
-                <Row gutter={[16, 16]}>
-                    <Col lg={12}>
+                <div style={{display: 'flex'}}>
+                    <div style={{flex: '1'}}>
                         <ProductImage detail={Product} />
-                    </Col>
-                    <Col lg={12}>
+                    </div>
+                    <div style={{flex: '1'}}>
                         <ProductInfo detail={Product} />
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </div>
         </Grid>
     )
