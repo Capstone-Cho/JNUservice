@@ -25,7 +25,7 @@ function ProductImage(props) {
     return (
         <>
             {/* <ImageGallery items={Images} width="100%" /> */}
-            <img src={img} alt="" width="95%" />
+            <img src={img} alt="" width="95%" style={{borderRadius: '10px'}} />
         </>
     )
 }
