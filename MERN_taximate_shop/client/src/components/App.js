@@ -34,8 +34,8 @@ function App() {
                     <Switch>
                         <Route exact path="/" component={Auth(Home, null)} />
                         <Route exact path="/shop" component={Auth(ShopLandingPage, null)} />
-                        <Route exact path="/login" component={Auth(LoginPage, false)} />
-                        <Route exact path="/register" component={Auth(RegisterPage, false)} />
+                        {/* <Route exact path="/login" component={Auth(LoginPage, false)} /> */}
+                        {/* <Route exact path="/register" component={Auth(RegisterPage, false)} /> */}
                         <Route exact path="/login_register" component={Auth(LoginRegisterPage, false)} />
                         <Route exact path="/product/upload" component={Auth(UploadProductPage, true)} />
                         <Route exact path="/product/:productId" component={Auth(DetailProductPage, null)} />
