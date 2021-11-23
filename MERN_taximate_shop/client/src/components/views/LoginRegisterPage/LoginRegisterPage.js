@@ -20,7 +20,7 @@ const Banner = styled.div`
     width: 100%;
     height: 420px;
     background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 80px 20px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
     background: #03a9f4;
     &.active {
@@ -65,6 +65,7 @@ const FormBox = styled.div`
     justify-content: center;
     align-items: center;
     box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
     transition: 0.5s ease-in-out;
     overflow: hidden;
     &.active {
