@@ -12,7 +12,7 @@ function RightMenu(props) {
     const logoutHandler = () => {
         axios.get(`${USER_SERVER}/logout`).then(response => {
             if (response.status === 200) {
-                props.history.push('/login')
+                props.history.push('/login_register')
             } else {
                 alert('Log Out Failed')
             }
@@ -22,11 +22,14 @@ function RightMenu(props) {
     if (user.userData && !user.userData.isAuth) {
         return (
             <Menu mode={props.mode}>
-                <Menu.Item key="signin">
+                {/* <Menu.Item key="signin">
                     <a href="/login">Signin</a>
                 </Menu.Item>
                 <Menu.Item key="signup">
                     <a href="/register">Signup</a>
+                </Menu.Item> */}
+                <Menu.Item key="signup">
+                    <a href="/login_register">Sign</a>
                 </Menu.Item>
             </Menu>
         )

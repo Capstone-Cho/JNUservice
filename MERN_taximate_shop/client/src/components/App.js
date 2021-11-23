@@ -19,6 +19,7 @@ import DetailVideoPage from './views/DetailVideoPage/DetailVideoPage'
 import SubscriptionPage from './views/SubscriptionPage/SubscriptionPage'
 
 import '../static/fonts/font.css'
+import LoginRegisterPage from './views/LoginRegisterPage/LoginRegisterPage'
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -29,12 +30,13 @@ function App() {
         <div style={{fontFamily: 'Jua'}}>
             <Suspense fallback={<div>Loading...</div>}>
                 <NavBar />
-                <div style={{paddingTop: '69px', minHeight: 'calc(100vh - 80px)'}}>
+                <div style={{paddingTop: '69px', minHeight: '100vh' /* 'calc(100vh - 80px)' */}}>
                     <Switch>
                         <Route exact path="/" component={Auth(Home, null)} />
                         <Route exact path="/shop" component={Auth(ShopLandingPage, null)} />
                         <Route exact path="/login" component={Auth(LoginPage, false)} />
                         <Route exact path="/register" component={Auth(RegisterPage, false)} />
+                        <Route exact path="/login_register" component={Auth(LoginRegisterPage, false)} />
                         <Route exact path="/product/upload" component={Auth(UploadProductPage, true)} />
                         <Route exact path="/product/:productId" component={Auth(DetailProductPage, null)} />
                         <Route exact path="/user/cart" component={Auth(CartPage, true)} />

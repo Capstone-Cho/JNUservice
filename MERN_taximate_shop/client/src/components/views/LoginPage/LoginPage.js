@@ -3,10 +3,56 @@ import {withRouter} from 'react-router-dom'
 import {loginUser} from '../../../_actions/user_actions'
 import {Formik} from 'formik'
 import * as Yup from 'yup'
-import {Form, Icon, Input, Button, Checkbox, Typography} from 'antd'
+import {Checkbox} from 'antd'
 import {useDispatch} from 'react-redux'
+// import './LoginPage.css'
 
-const {Title} = Typography
+import styled from 'styled-components'
+
+const App = styled.div`
+    position: relative;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+const Form = styled.form`
+    width: 100%;
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+`
+
+const H2 = styled.h2`
+    font-size: 2rem;
+`
+
+const Input = styled.input`
+    line-height: 20px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: 2px solid #03a9f4;
+    margin-bottom: 20px;
+    &:focus {
+        outline: none;
+        box-shadow: 0 1px 5px #03a9f4;
+    }
+`
+
+const Button = styled.button`
+    margin-top: 5px;
+    background: #03a9f4;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    max-width: 100px;
+    padding: 3px;
+    cursor: pointer;
+`
 
 function LoginPage(props) {
     const dispatch = useDispatch()
@@ -47,6 +93,8 @@ function LoginPage(props) {
                                 } else {
                                     localStorage.removeItem('rememberMe')
                                 }
+                                console.log(props.history)
+
                                 props.history.push('/')
                             } else {
                                 setFormErrorMessage('Check out your Account or Password again')
@@ -63,39 +111,22 @@ function LoginPage(props) {
             }}
         >
             {props => {
-                const {values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit, handleReset} = props
+                const {values, touched, errors, isSubmitting, handleChange, handleSubmit} = props
                 return (
-                    <div className="app">
-                        <Title level={2}>Log In</Title>
-                        <form onSubmit={handleSubmit} style={{width: '350px'}}>
-                            <Form.Item required>
-                                <Input
-                                    id="email"
-                                    prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}} />}
-                                    placeholder="Enter your email"
-                                    type="email"
-                                    value={values.email}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    className={errors.email && touched.email ? 'text-input error' : 'text-input'}
-                                />
-                                {errors.email && touched.email && <div className="input-feedback">{errors.email}</div>}
-                            </Form.Item>
+                    <App className="app">
+                        <Form onSubmit={handleSubmit}>
+                            <H2>Sign In</H2>
+                            <Input id="email" placeholder="Enter your email" type="email" value={values.email} onChange={handleChange} />
+                            {errors.email && touched.email && <div className="input-feedback">{errors.email}</div>}
 
-                            <Form.Item required>
-                                <Input
-                                    id="password"
-                                    prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}} />}
-                                    placeholder="Enter your password"
-                                    type="password"
-                                    value={values.password}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    className={errors.password && touched.password ? 'text-input error' : 'text-input'}
-                                />
-                                {errors.password && touched.password && <div className="input-feedback">{errors.password}</div>}
-                            </Form.Item>
-
+                            <Input
+                                id="password"
+                                placeholder="Enter your password"
+                                type="password"
+                                value={values.password}
+                                onChange={handleChange}
+                            />
+                            {errors.password && touched.password && <div className="input-feedback">{errors.password}</div>}
                             {formErrorMessage && (
                                 <label>
                                     <p
@@ -111,30 +142,17 @@ function LoginPage(props) {
                                     </p>
                                 </label>
                             )}
-
-                            <Form.Item>
-                                <Checkbox id="rememberMe" onChange={handleRememberMe} checked={rememberMe}>
-                                    Remember me
-                                </Checkbox>
-                                <a className="login-form-forgot" href="/reset_user" style={{float: 'right'}}>
-                                    forgot password
-                                </a>
-                                <div>
-                                    <Button
-                                        type="primary"
-                                        htmlType="submit"
-                                        className="login-form-button"
-                                        style={{minWidth: '100%'}}
-                                        disabled={isSubmitting}
-                                        onSubmit={handleSubmit}
-                                    >
-                                        Log in
-                                    </Button>
-                                </div>
+                            <Checkbox id="rememberMe" onChange={handleRememberMe} checked={rememberMe}>
+                                Remember me
+                            </Checkbox>
+                            <Button className="login_button" disabled={isSubmitting} onSubmit={handleSubmit}>
+                                Log In
+                            </Button>
+                            <div>
                                 Or <a href="/register">register now!</a>
-                            </Form.Item>
-                        </form>
-                    </div>
+                            </div>
+                        </Form>
+                    </App>
                 )
             }}
         </Formik>
