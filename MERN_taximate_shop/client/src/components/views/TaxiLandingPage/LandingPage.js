@@ -23,8 +23,8 @@ function LandingPage() {
     }, [])
 
     const renderCards = Videos.map((video, index) => {
-        var minutes = Math.floor(video.duration / 60)
-        var seconds = Math.floor(video.duration - minutes * 60)
+        // var minutes = Math.floor(video.duration / 60)
+        // var seconds = Math.floor(video.duration - minutes * 60)
 
         return (
             <Col lg={6} md={8} xs={24} key={index}>
@@ -35,7 +35,7 @@ function LandingPage() {
                                 src={`https://upload.wikimedia.org/wikipedia/commons/3/3f/Taxi_Icon.png`}
                                 style={{width: '100px', margin: '30px'}}
                             />
-                            <div
+                            {/* <div
                                 className=" duration"
                                 style={{
                                     bottom: 0,
@@ -56,7 +56,7 @@ function LandingPage() {
                                 <span>
                                     {minutes} : {seconds}
                                 </span>
-                            </div>
+                            </div> */}
 
                             {/* <img style={{width: '100%'}} alt="thumbnail" src={`http://localhost:5000/${video.thumbnail}`} /> */}
                         </a>
