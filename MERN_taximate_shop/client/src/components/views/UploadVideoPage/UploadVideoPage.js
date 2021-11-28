@@ -344,39 +344,39 @@ function UploadVideoPage(props) {
 
                     <div style={{width: '50%', marginLeft: '15px'}}>
                         <label>출발 장소</label>
-                        <Textarea value={StartAddr} style={{maxWidth: '100%'}} readOnly />
+                        <Textarea placeholder="지도를 통해 설정해주세요." value={StartAddr} style={{maxWidth: '100%'}} readOnly required/>
                         <br />
                         <label htmlFor="">상세주소 </label>
                         <Input type="text" value={StartLocation} onChange={handleChangeStartLocation} />
                         <br />
                         <br />
                         <label>도착 장소</label>
-                        <Textarea value={EndAddr} style={{maxWidth: '100%'}} readOnly />
+                        <Textarea placeholder="지도를 통해 설정해주세요." value={EndAddr} style={{maxWidth: '100%'}} readOnly required/>
                         <br />
                         <label htmlFor="">상세주소 </label>
                         <Input type="text" value={EndLocation} onChange={handleChangeEndLocation} />
                         <br />
                         <br />
                         <label>시간</label>
-                        <Input type="datetime-local" value={MeetTime} onChange={handleChangeTime} />
+                        <Input type="datetime-local" value={MeetTime} onChange={handleChangeTime} required/>
                         <br />
                         <br />
                         <label>내용</label>
                         <Textarea onChange={handleChangeDecsription} value={Description} />
                         <br />
                         <br />
-                        <label>출발</label>
-                        <Input value={StartLa} style={{width: '40%', marginLeft: '10px'}} readOnly />
-                        <Input value={StartMa} style={{width: '40%', marginLeft: '10px'}} readOnly />
+                        {/*<label>출발</label>*/}
+                        <Input type="hidden" value={StartLa} style={{width: '40%', marginLeft: '10px'}} readOnly />
+                        <Input type="hidden" value={StartMa} style={{width: '40%', marginLeft: '10px'}} readOnly />
                         <br />
                         <br />
-                        <label>도착</label>
-                        <Input value={EndLa} style={{width: '40%', marginLeft: '10px'}} readOnly />
-                        <Input value={EndMa} style={{width: '40%', marginLeft: '10px'}} readOnly />
+                        {/*<label>도착</label>*/}
+                        <Input type="hidden" value={EndLa} style={{width: '40%', marginLeft: '10px'}} readOnly />
+                        <Input type="hidden" value={EndMa} style={{width: '40%', marginLeft: '10px'}} readOnly />
                         <br />
                         <br />
                         <Button type="primary" size="large" onClick={onSubmit} style={{display: 'block', margin: 'auto'}}>
-                            Submit
+                            택시 메이트 생성
                         </Button>
                     </div>
                 </Form>
