@@ -55,9 +55,7 @@ function LandingPage() {
           />
           <span style={{ textAlign: "center", margin: "auto" }}>
             {" "}
-            {moment(video.MeetTime).format("YYYY년 MM월 D일")}
-            <br></br>
-            {moment(video.MeetTime).format("hh:mm 예정")}{" "}
+            {moment(video.MeetTime).format("YYYY년 MM월 D일 hh:mm 예정")}
           </span>
         </div>
       </Col>
