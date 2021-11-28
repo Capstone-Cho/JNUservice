@@ -143,10 +143,10 @@ function UploadVideoPage(props) {
 
         axios.post('/api/video/uploadVideo', variables).then(response => {
             if (response.data.success) {
-                alert('Uploaded Successfully')
+                alert('일정 등록 완료!')
                 props.history.push('/taxi')
             } else {
-                alert('Failed to upload video')
+                alert('글쓰기에 실패했습니다.')
             }
         })
     }
@@ -333,7 +333,14 @@ function UploadVideoPage(props) {
                 </div>
 
                 <Form onSubmit={onSubmit} style={{display: 'flex'}}>
-                    <div id="map" style={{width: '50%', height: '500px', boxShadow: '0px 0px 5px 1px #fcbf49'}}></div>
+                    <div
+                        id="map"
+                        style={{
+                            width: '50%',
+                            height: '500px',
+                            boxShadow: '0px 0px 5px 1px #fcbf49',
+                        }}
+                    ></div>
 
                     <div style={{width: '50%', marginLeft: '15px'}}>
                         <label>출발 장소</label>
