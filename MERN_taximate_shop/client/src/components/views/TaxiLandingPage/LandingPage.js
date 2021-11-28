@@ -17,7 +17,7 @@ function LandingPage() {
         console.log(response.data.videos);
         setVideos(response.data.videos);
       } else {
-        alert("Failed to get Videos");
+        alert("작성에 실패했습니다.");
       }
     });
   }, []);
