@@ -20,6 +20,7 @@ const SoftBox = styled.div`
         position: absolute;
         inset: 5px;
         background: #fff;
+        border: 2px solid rgb(255, 192, 0);
         border-radius: 35px;
         transition: 0.5s;
     }
