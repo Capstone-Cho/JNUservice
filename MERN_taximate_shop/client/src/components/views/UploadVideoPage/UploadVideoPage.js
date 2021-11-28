@@ -362,7 +362,7 @@ function UploadVideoPage(props) {
                         <br />
                         <br />
                         <label>내용</label>
-                        <Textarea onChange={handleChangeDecsription} value={Description} readOnly />
+                        <Textarea onChange={handleChangeDecsription} value={Description} />
                         <br />
                         <br />
                         <label>출발</label>

@@ -48,7 +48,6 @@ function App() {
                         <Route exact path="/subscription" component={Auth(SubscriptionPage, null)} />
                     </Switch>
                 </div>
-                {/* <Footer /> */}
             </Suspense>
         </div>
     )
