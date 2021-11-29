@@ -35,7 +35,7 @@ function DetailVideoPage(props) {
         axios.post('/api/video/getVideo', videoVariable).then(response => {
             if (response.data.success) {
                 const pos = response.data.video
-                var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                var mapContainer = document.getElementById('map'), // 지도를 표시할 div태그
                     mapOption = {
                         center: new kakao.maps.LatLng(pos.StartMa, pos.StartLa),
                         level: 5, // 지도의 확대 레벨
