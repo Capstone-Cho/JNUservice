@@ -344,21 +344,21 @@ function UploadVideoPage(props) {
 
                     <div style={{width: '50%', marginLeft: '15px'}}>
                         <label>출발 장소</label>
-                        <Textarea placeholder="지도를 통해 설정해주세요." value={StartAddr} style={{maxWidth: '100%'}} readOnly required/>
+                        <Textarea placeholder="지도를 통해 설정해주세요." value={StartAddr} style={{maxWidth: '100%'}} readOnly required />
                         <br />
                         <label htmlFor="">상세주소 </label>
                         <Input type="text" value={StartLocation} onChange={handleChangeStartLocation} />
                         <br />
                         <br />
                         <label>도착 장소</label>
-                        <Textarea placeholder="지도를 통해 설정해주세요." value={EndAddr} style={{maxWidth: '100%'}} readOnly required/>
+                        <Textarea placeholder="지도를 통해 설정해주세요." value={EndAddr} style={{maxWidth: '100%'}} readOnly required />
                         <br />
                         <label htmlFor="">상세주소 </label>
                         <Input type="text" value={EndLocation} onChange={handleChangeEndLocation} />
                         <br />
                         <br />
                         <label>시간</label>
-                        <Input type="datetime-local" value={MeetTime} onChange={handleChangeTime} required/>
+                        <Input type="datetime-local" value={MeetTime} onChange={handleChangeTime} required />
                         <br />
                         <br />
                         <label>내용</label>
