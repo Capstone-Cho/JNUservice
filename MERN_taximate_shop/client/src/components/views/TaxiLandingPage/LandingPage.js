@@ -59,7 +59,7 @@ function LandingPage() {
     const [Videos, setVideos] = useState([])
     const currentTime = moment()
     const t1 = moment('2019-03-06 13:00', 'YYYY-MM-DD HH:mm')
-    console.log('차이: ', moment.duration(t1.diff(currentTime)).asMilliseconds())
+    console.log('시간차: ', moment.duration(t1.diff(currentTime)).asMilliseconds())
 
     useEffect(() => {
         axios.get('/api/video/getVideos').then(response => {
