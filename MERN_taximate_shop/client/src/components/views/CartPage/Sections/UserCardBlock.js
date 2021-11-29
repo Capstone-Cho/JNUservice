@@ -1,5 +1,6 @@
 import React from 'react'
 import './UserCardBlock.css'
+import {DeleteTwoTone} from '@ant-design/icons'
 import styled from 'styled-components'
 
 function UserCardBlock(props) {
@@ -17,10 +18,15 @@ function UserCardBlock(props) {
                 <td>
                     <img style={{width: '70px'}} alt="product" src={renderCartImage(product.images)} />
                 </td>
-                <td>{product.quantity} EA</td>
-                <td>$ {product.price}</td>
+                <td>{product.quantity} 개</td>
+                <td>{product.price} 원</td>
                 <td>
-                    <button onClick={() => props.removeItem(product._id)}>Remove</button>
+                    <button
+                        onClick={() => props.removeItem(product._id)}
+                        style={{fontSize: '1.5rem', border: 'none', backgroundColor: '#bbcce2', cursor: 'pointer'}}
+                    >
+                        <DeleteTwoTone />
+                    </button>
                 </td>
             </tr>
         ))

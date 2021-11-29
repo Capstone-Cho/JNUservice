@@ -15,6 +15,21 @@ const Grid = styled.div`
     background: #b5cae6;
 `
 
+const Button = styled.button`
+    padding: 2px 5px;
+    width: 80px;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    color: #4187f6;
+    transition: all 100ms;
+    &:hover {
+        cursor: pointer;
+        border: 3px solid #4187f6;
+    }
+`
+
 const {TextArea} = Input
 
 const Continents = [
@@ -30,7 +45,7 @@ const Continents = [
 function UploadProductPage(props) {
     const [Title, setTitle] = useState('')
     const [Description, setDescription] = useState('')
-    const [Price, setPrice] = useState(0)
+    const [Price, setPrice] = useState(null)
     const [Continent, setContinent] = useState(1)
     const [Images, setImages] = useState([])
 
@@ -109,17 +124,28 @@ function UploadProductPage(props) {
                     <Input type="number" onChange={priceChangeHandler} value={Price} />
                     <br />
                     <br />
-                    <select onChange={continentChangeHandler} value={Continent}>
+                    <select
+                        onChange={continentChangeHandler}
+                        value={Continent}
+                        style={{
+                            width: '150px',
+                            height: '25px',
+                            borderRadius: '10px',
+                            fontSize: '.8rem',
+                            cursor: 'pointer',
+                            outline: 'none',
+                            border: 'none',
+                        }}
+                    >
                         {Continents.map(item => (
                             <option key={item.key} value={item.key}>
-                                {' '}
                                 {item.value}
                             </option>
                         ))}
                     </select>
                     <br />
                     <br />
-                    <button type="submit">확인</button>
+                    <Button type="submit">확인</Button>
                 </Form>
             </div>
         </Grid>
