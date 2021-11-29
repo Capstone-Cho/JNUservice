@@ -32,7 +32,7 @@ function FileUpload(props) {
     }
 
     return (
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
+        <div style={{display: 'flex', justifyContent: 'space-between', color: '#4187f6'}}>
             <Dropzone onDrop={dropHandler}>
                 {({getRootProps, getInputProps}) => (
                     <div
@@ -44,6 +44,7 @@ function FileUpload(props) {
                             alignItems: 'center',
                             justifyContent: 'center',
                             backgroundColor: 'white',
+                            border: '3px solid #4187f6',
                             borderRadius: '10px',
                             cursor: 'pointer',
                         }}
