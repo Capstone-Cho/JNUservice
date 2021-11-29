@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import moment from 'moment'
 
-function SideVideo() {
+function SideBar() {
     const [SideVideos, setSideVideos] = useState([])
 
     useEffect(() => {
@@ -21,15 +21,16 @@ function SideVideo() {
             <div key={index} style={{display: 'flex', marginTop: '1rem', padding: '0 2rem'}}>
                 <div style={{width: '40%', marginRight: '1rem'}}>
                     <a href={`/video/${video._id}`} style={{color: 'gray'}}>
-                        <img src={`https://img.icons8.com/fluency/2x/carpool.png`} style={{width: '30px', margin: '30px'}} />
+                        <img
+                            src={`https://upload.wikimedia.org/wikipedia/commons/3/3f/Taxi_Icon.png`}
+                            style={{width: '30px', margin: '30px'}}
+                        />
                     </a>
                 </div>
 
                 <div style={{width: '50%'}}>
                     <a href={`/video/${video._id}`} style={{color: 'gray'}}>
-                        <span style={{fontSize: '1rem', color: 'black'}}>{video.title} </span>
-                        <br />
-                        <span>
+                        <span style={{fontSize: '1rem', color: 'black'}}>
                             {video.StartLocation} &#62; {video.EndLocation}
                         </span>
                         <br />
@@ -54,4 +55,4 @@ function SideVideo() {
     )
 }
 
-export default SideVideo
+export default SideBar

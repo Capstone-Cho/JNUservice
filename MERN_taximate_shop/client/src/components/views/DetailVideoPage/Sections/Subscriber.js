@@ -61,7 +61,7 @@ function Subscriber(props) {
             <button
                 onClick={onSubscribe}
                 style={{
-                    backgroundColor: `${Subscribed ? '#AAAAAA' : '#CC0000'}`,
+                    backgroundColor: `${Subscribed ? '#AAAAAA' : '#FFC000'}`,
                     borderRadius: '4px',
                     color: 'white',
                     padding: '10px 16px',
@@ -69,6 +69,7 @@ function Subscriber(props) {
                     fontSize: '1rem',
                     textTransform: 'uppercase',
                     cursor: 'pointer',
+                    marginLeft: '15px',
                 }}
             >
                 {SubscribeNumber} {Subscribed ? 'Subscribed' : 'Subscribe'}

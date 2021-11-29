@@ -72,13 +72,8 @@ const Button = styled.button`
 function UploadVideoPage(props) {
     const user = useSelector(state => state.user)
 
-    const [title, setTitle] = useState('')
+    // const [title, setTitle] = useState('')
     const [Description, setDescription] = useState('')
-    const [privacy, setPrivacy] = useState(0)
-    const [Categories, setCategories] = useState('Film & Animation')
-    const [FilePath, setFilePath] = useState('')
-    const [Duration, setDuration] = useState('')
-    const [Thumbnail, setThumbnail] = useState('')
 
     const [StartLa, setStartLa] = useState(0)
     const [StartMa, setStartMa] = useState(0)
@@ -92,9 +87,9 @@ function UploadVideoPage(props) {
     const [EndAddr, setEndAddr] = useState('')
     const [StartAddr, setStartAddr] = useState('')
 
-    const handleChangeTitle = event => {
-        setTitle(event.currentTarget.value)
-    }
+    // const handleChangeTitle = event => {
+    //     setTitle(event.currentTarget.value)
+    // }
 
     const handleChangeDecsription = event => {
         setDescription(event.currentTarget.value)
@@ -125,17 +120,12 @@ function UploadVideoPage(props) {
 
         const variables = {
             writer: user.userData._id,
-            title: title,
+            // title: title,
             description: Description,
             StartLa: StartLa,
             StartMa: StartMa,
             EndLa: EndLa,
             EndMa: EndMa,
-            privacy: privacy,
-            filePath: FilePath,
-            category: Categories,
-            duration: Duration,
-            thumbnail: Thumbnail,
             StartLocation: StartLocation,
             EndLocation: EndLocation,
             MeetTime: MeetTime,
@@ -362,10 +352,14 @@ function UploadVideoPage(props) {
                         <br />
                         <br />
                         <label>내용</label>
-                        <Textarea onChange={handleChangeDecsription} value={Description} />
+                        <Textarea onChange={handleChangeDecsription} value={Description} style={{height: '100px'}} />
                         <br />
                         <br />
                         {/*<label>출발</label>*/}
+
+                        <Button type="primary" size="large" onClick={onSubmit} style={{display: 'block', margin: 'auto'}}>
+                            택시 메이트 생성
+                        </Button>
                         <Input type="hidden" value={StartLa} style={{width: '40%', marginLeft: '10px'}} readOnly />
                         <Input type="hidden" value={StartMa} style={{width: '40%', marginLeft: '10px'}} readOnly />
                         <br />
@@ -375,9 +369,6 @@ function UploadVideoPage(props) {
                         <Input type="hidden" value={EndMa} style={{width: '40%', marginLeft: '10px'}} readOnly />
                         <br />
                         <br />
-                        <Button type="primary" size="large" onClick={onSubmit} style={{display: 'block', margin: 'auto'}}>
-                            택시 메이트 생성
-                        </Button>
                     </div>
                 </Form>
             </div>

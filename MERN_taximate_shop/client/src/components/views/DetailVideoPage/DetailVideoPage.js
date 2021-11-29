@@ -2,12 +2,25 @@
 import React, {useEffect, useState} from 'react'
 import {List, Row, Col} from 'antd'
 import axios from 'axios'
-import SideVideo from './Sections/SideVideo'
+import SideBar from './Sections/SideBar'
 import Subscriber from './Sections/Subscriber'
 import Comments from './Sections/Comments'
 import LikeDislikes from './Sections/LikeDislikes'
 import TaxiBar from '../TaxiBar/NavBar'
 import moment from 'moment'
+import styled from 'styled-components'
+
+const ScrollBar = styled.div`
+    height: 500px;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(255, 192, 0);
+        border-radius: 20px;
+    }
+`
 
 function DetailVideoPage(props) {
     const videoId = props.match.params.videoId
@@ -114,43 +127,13 @@ function DetailVideoPage(props) {
         return (
             <>
                 <TaxiBar />
-                <div id="map" style={{width: '950px', height: '400px', marginLeft: '100px'}}></div>
-                <Row>
-                    <Col lg={18} xs={24}>
+                <div
+                    id="map"
+                    style={{width: '1000px', height: '400px', marginLeft: '100px', border: '10px solid #ffc000', borderRadius: '20px'}}
+                ></div>
+                <div style={{display: 'grid', gridTemplateColumns: '3fr 1fr'}}>
+                    <div>
                         <div className="postPage" style={{width: '100%', padding: '3rem 4em'}}>
-                            {/* <List.Item
-                                actions={[
-                                    <LikeDislikes video videoId={videoId} userId={localStorage.getItem('userId')} />,
-                                    <Subscriber userTo={Video.writer._id} userFrom={localStorage.getItem('userId')} />,
-                                ]}
-                            >
-                                <span
-                                    style={{
-                                        fontWeight: 'bold',
-                                        fontSize: '30px',
-                                        // width: '100%',
-                                    }}
-                                >
-                                    {Video.title}
-                                </span>
-                                <div style={{display: 'flex'}}>
-                                    <div>
-                                        <img
-                                            src={Video.writer && Video.writer.image}
-                                            alt=""
-                                            width="50px"
-                                            style={{borderRadius: '50%', marginRight: '15px'}}
-                                        />
-                                    </div>
-                                    <ul style={{listStyle: 'none'}}>
-                                        <li>
-                                            {Video.StartLocation} &#62; {Video.EndLocation}
-                                        </li>
-                                        <li>{moment(Video.MeetTime).format('YYYY년 MM월 D일 hh:mm 예정')}</li>
-                                        <li>{Video.description}</li>
-                                    </ul>
-                                </div>
-                            </List.Item> */}
                             <div>
                                 <div
                                     style={{
@@ -173,9 +156,6 @@ function DetailVideoPage(props) {
                                         </div>
 
                                         <ul style={{listStyle: 'none'}}>
-                                            {/* <li>
-                                                {Video.StartLocation} &#62; {Video.EndLocation}
-                                            </li> */}
                                             <li>{moment(Video.MeetTime).format('YYYY년 MM월 D일 hh:mm 예정')}</li>
                                             <li>{Video.description}</li>
                                         </ul>
@@ -190,11 +170,11 @@ function DetailVideoPage(props) {
 
                             <Comments CommentLists={CommentLists} postId={Video._id} refreshFunction={updateComment} />
                         </div>
-                    </Col>
-                    <Col lg={6} xs={24}>
-                        <SideVideo />
-                    </Col>
-                </Row>
+                    </div>
+                    <ScrollBar style={{height: '500px', overflow: 'scroll'}}>
+                        <SideBar />
+                    </ScrollBar>
+                </div>
             </>
         )
     } else {

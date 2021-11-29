@@ -1,10 +1,37 @@
 import React, {useState} from 'react'
-import {Button, Input} from 'antd'
 import axios from 'axios'
 import {useSelector} from 'react-redux'
 import SingleComment from './SingleComment'
 import ReplyComment from './ReplyComment'
-const {TextArea} = Input
+import styled from 'styled-components'
+
+const Text = styled.textarea`
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    padding: 0 10px;
+    border: 1px solid lightgray;
+    transition: border 0.5s;
+    &:hover {
+        border: 1px solid #ffc000;
+    }
+    &:focus {
+        border: 1px solid #ffc000;
+    }
+`
+
+const Button = styled.button`
+    width: 20%;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    &:hover {
+        cursor: pointer;
+        border: 1px solid #ffc000;
+        color: #ffc000;
+    }
+`
 
 function Comments(props) {
     const user = useSelector(state => state.user)
@@ -59,12 +86,7 @@ function Comments(props) {
 
             {/* Root Comment Form */}
             <form style={{display: 'flex'}} onSubmit={onSubmit}>
-                <TextArea
-                    style={{width: '100%', borderRadius: '5px'}}
-                    onChange={handleChange}
-                    value={Comment}
-                    placeholder="write some comments"
-                />
+                <Text onChange={handleChange} value={Comment} placeholder="write some comments" />
                 <br />
                 <Button style={{width: '20%', height: '52px'}} onClick={onSubmit}>
                     Submit
